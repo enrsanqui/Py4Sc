@@ -1,0 +1,20 @@
+ORDENAR MATRICES Y VECTORES
+---------------------------
+
+1) np.sort(v1,axis,algor,...)
+
+   -> Ordena vectores segun el eje que se le indique independientemente de que sea matriz o array.
+
+   -> Cuando es una matriz, cada columna y demás se ordena por separado
+
+2) Para ordenar utilizando un criterio
+
+2.1) Ordenar siguiendo la columna 2 por ejemplo
+
+     >> a[a[:,1].argsort()]
+
+2.2) Ordenar siguiendo primero la columna 2 y despues la 1
+
+     >> idx = np.lexsort((a[:,0],a[:,1]))
+     >> a[idx]
+
