@@ -1,0 +1,37 @@
+GENERAL USE NOTES FOR NUMPY
+--------------------------
+
+1) Ab initio constructors
+
+   >> x=np.linspace(start,stop,num=50#default, endpoint=True,
+      		    retstep = False, dtype=None)
+
+   >> x=np.logspace --> for logarithmic scale
+   >> x=np.arange(start=0,stop,step=1,dtype=None) --> Returns an array
+   >> np.array(c,dtype=None,copy)
+
+2) Look-alike constructors
+
+   >> y=np.empty_like(x)
+   >> x=np.hstack((xl,xm,xr)) --> concatenate different list (not it receives a tuple).
+
+3) Logical select cases
+
+   >> np.select([x>=2, x>=1, x>=0, x<0],[4.0, x**2, x**3, -x])
+
+   --> Piecewise to evaluate only when needed
+
+   >> def m1(x):
+      	  return np.exp(2*x)
+   >> def m2(x):
+      	  return 1.0
+      def m3(x):
+      	  return np.exp(1.0-x)
+
+      x = np.linspace(-10,10,21)
+      conditions = [x>=0, x>=1, x<0]
+      functions = [m2, m3, m1]
+      m = np.piecewise(x,conditions,functions)
+
+      --> Can be done with lambda functions
+      
